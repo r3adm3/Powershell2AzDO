@@ -8,6 +8,10 @@ $uriAccount = $UriOrga + "_apis/projects?api-version=5.1"
 
 $output = Invoke-RestMethod -Uri $uriAccount -Method get -Headers $AzureDevOpsAuthenicationHeader 
 
+write-host "  ** Headers   : $($AzureDevOpsAuthenicationHeader['Authorization'])"
+write-host "  ** uriAccout : $($uriAccount)"
+write-host ""
+
 $output.value | ForEach-Object {
     Write-Host $_.name
 }
